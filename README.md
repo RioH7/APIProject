@@ -30,7 +30,7 @@ page and 'details.js' corresponds to the 'detailsPage.html' page.
 ### Links
 
 - Solution URL: https://github.com/RioH7/APIProject
-- Live Site URL: https://rioh7.github.io/
+- Live Site URL: https://rioh7.github.io/APIProject/
 
 ### Built with
 
