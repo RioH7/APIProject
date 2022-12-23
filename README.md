@@ -1,4 +1,4 @@
-# Frontend Mentor - Calculator app solution
+# Frontend Mentor - REST Countries API solution
 
 This is a solution to the [REST Countries API Project on Frontend Mentor]
 
