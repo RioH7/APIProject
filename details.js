@@ -24,7 +24,13 @@ const getDetails = async() => {
         const response = await fetch(urlToFetch);
         if(response.ok) {
             const jsonResponse = await response.json();
-            showDetails(jsonResponse[0]);
+            //Repair a bug with United States response being in reverse order
+            if(sessionStorage.getItem("countryName") === "United States") {
+                showDetails(jsonResponse[jsonResponse.length - 1]);
+            } else {
+                //Default call for all but United States
+                showDetails(jsonResponse[0]);
+            }
         }
     } catch(error) {
         console.log(error);
@@ -32,6 +38,7 @@ const getDetails = async() => {
 }
 
 const showBorders = async(borders) => {
+    //Show maximum of 3 borders
     borderQuery = borders.slice(0, 3).join(',').toLowerCase();
     document.querySelector('div>b').innerHTML = 'Border Countries:';
         try {
@@ -62,6 +69,7 @@ const getByName = async(anchorName) => {
     }
 }
 
+//Allows border countries to navigate the site also
 document.addEventListener("click", e => {
     if(e.target.matches('.borders-container>a')) {
         getByName(`${e.target.textContent}`);
@@ -69,3 +77,4 @@ document.addEventListener("click", e => {
 });
 
 getDetails();
+

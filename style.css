@@ -145,18 +145,20 @@ b {
 }
 
 #countryName {
-    grid-area: 2 / 2 / span 1 / span 1;
-    margin: 0 0 20px 0;
+    grid-area: 2 / 2 / span 1 / span 2;
+    margin: 0 0 40px 0;
 }
 
 #list-one{
     grid-area: 2 / 2 / span 1 / span 1;
     margin: 50px 0 0 0;
+    padding: 50px 0 0 0;
 }
 
 #list-two {
     grid-area: 2 / 3 / span 1 / span 1;
     margin: 50px 0 0 0;
+    padding: 50px 0 0 0;
 }
 
 .borders-container {
@@ -242,9 +244,13 @@ b {
     }
     #list-one {
         grid-area: 3 / 1 / span 1 / span 1;
+        width: 310px;
+        padding: 20px 0 0 0;
     }
     #list-two {
         grid-area: 4 / 1 / span 1 / span 1;
+        width: 310px;
+        padding: 0;
     }
     .borders-container {
         grid-area: 5 / 1 / span 1 / span 1;

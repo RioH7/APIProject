@@ -4,7 +4,7 @@ const nameUrl = `https://restcountries.com/v3.1/name/`;
 const template = document.getElementById('template');
 const countries = document.querySelector('.countries');
 
-//clear page for showing new results
+//clear page before showing new results
 const removeCountries = () => {
     document.querySelectorAll('.box').forEach(el => {
         countries.removeChild(el);
@@ -48,16 +48,20 @@ const getCountries = async(url, params) => {
     }
 }
 
+//Change to details page when country is clicked
 document.addEventListener("click", e => {
     if(e.target.matches('.box h2')) {
+        //Used to pass which country was clicked to detail page
         sessionStorage.setItem("countryName", e.target.textContent);
         window.location = "detailPage.html";
     }
 });
 
+//Filter By Region Events
 document.addEventListener("change", e => {
     if(e.target.matches('#regionFilter')) {
         if(e.target.value === "all") {
+            //Default to all on default region filter input
             getCountries(baseUrl, 'all');
         } else {
             getCountries(regionUrl, `${e.target.value}`);
@@ -65,9 +69,11 @@ document.addEventListener("change", e => {
     }
 });
 
+//Searchbar Events
 document.addEventListener('input', e => {
     if (e.target.matches('#search')) {
         if (e.target.value === "") {
+            //Default to all countries when no input in searchbar
             getCountries(baseUrl, 'all');
         } else {
             getCountries(nameUrl, `${e.target.value.trim().toLowerCase()}`);
